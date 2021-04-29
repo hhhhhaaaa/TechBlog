@@ -1,0 +1,39 @@
+{
+  "name": "techblog",
+  "description": "A Tech Blog",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "seed": "node seeds/seed.js",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hhhhhaaaa/techblog.git"
+  },
+  "author": "Doug",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hhhhhaaaa/techblog/issues"
+  },
+  "homepage": "https://github.com/hhhhhaaaa/techblog#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "connect-session-sequelize": "^7.0.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.0",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsdoc": "^32.3.2",
+    "jsdoc": "^3.6.6",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1"
+  }
+}

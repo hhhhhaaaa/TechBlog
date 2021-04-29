@@ -1,0 +1,21 @@
+:root {
+  --mint: #d9ead3;
+  --chocolate: #231010;
+}
+
+header {
+  color: var(--mint);
+  background-color: var(--chocolate);
+}
+
+main {
+  border: 5px;
+  border-style: solid;
+  border-color: var(--chocolate);
+  margin-top: 50px;
+}
+
+body {
+  color: var(--chocolate);
+  background-color: var(--mint);
+}
