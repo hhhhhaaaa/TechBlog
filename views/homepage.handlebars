@@ -1,11 +1,11 @@
 {{#each posts as |post|}}
-  <div class="row mb-4 project">
-    <div class="col-12">
-      <h2>
-        <a class="col-6 row" href="/post/{{post.id}}">
-          {{post.title}}
-        </a>
-        <p class="col-6">
+  <div class="text-center justify-content-center mb-5 column">
+    <div>
+      <h2 class="titleBar column">
+        <p class="col-12">
+          <a href="/post/{{post.id}}">
+            {{post.title}}
+          </a>
           Created by
           {{post.user.name}}
           on

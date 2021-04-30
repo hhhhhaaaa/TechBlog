@@ -16,26 +16,28 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", async (req, res, next) => {
   try {
     const userData = await User.findOne({ where: { name: req.body.name } });
 
     if (!userData) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
+      const err = new Error("Incorrect Username");
 
-      return;
+      err.status = 401;
+      err.message = "Incorrect Username";
+
+      return next(err);
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
+      const err = new Error("Incorrect Password");
 
-      return;
+      err.status = 401;
+      err.message = "Incorrect Password";
+
+      return next(err);
     }
 
     req.session.save(() => {

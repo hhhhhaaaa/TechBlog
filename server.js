@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const path = require("path");
 const express = require("express");
 const session = require("express-session");
@@ -33,6 +34,14 @@ app.set("view engine", "handlebars");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use((err, req, res, next) => {
+  const { status } = err;
+  const { message } = err;
+
+  res.writeHead(status, message, { "content-type": "text/plain" });
+  res.end(message);
+});
 
 app.use(routes);
 

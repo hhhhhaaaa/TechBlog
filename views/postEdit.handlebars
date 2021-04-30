@@ -1,55 +1,44 @@
 <div class="row mt-4">
   <div class="col-md-6">
     <h3>
-      Create a New Post:
+      Update a New Post:
     </h3>
-    <form class="new-post-form">
+    <form class="update-post-form">
       <div class="form-group">
         <label for="post-title">
           Post Title:
         </label>
-        <input
+        <textarea
           class="form-input"
           type="text"
           id="post-title"
           name="post-title"
-        />
+        >
+          {{title}}
+        </textarea>
       </div>
       <div class="form-group">
         <label for="post-desc">
           Description:
         </label>
-        <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+        <textarea class="form-input" id="post-desc" name="post-desc">
+          {{description}}
+        </textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">
-          Create
+          Update
         </button>
       </div>
     </form>
+    <button type="click" class="btn btn-primary" id="deleteBtn">
+      Delete
+    </button>
   </div>
-  {{#if posts.length}}
-    <div class="col-md-6 post-list">
-      <h3>
-        User Posts:
-      </h3>
-      {{#each posts as |post|}}
-        <div class="row mb-2">
-          <div class="col-md-8">
-            <h4>
-              <a href="edit/post/{{post.id}}">
-                {{post.title}}
-              </a>
-            </h4>
-          </div>
-        </div>
-      {{/each}}
-    </div>
-  {{/if}}
 </div>
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"
 ></script>
-<script src="./js/newPost.js"></script>
+<script src="../../js/edit.js"></script>

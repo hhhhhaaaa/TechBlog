@@ -1,14 +1,68 @@
-<div class="text-center">
-  <h2>
-    {{name}}
-  </h2>
-  <p>
-    {{description}}
-  </p>
-  <p>
-    Created by
-    {{user.name}}
-    on
-    {{formatDate dateCreated}}
-  </p>
+<div class="text-center justify-content-center mb-5 column">
+  <div>
+    <h2 class="titleBar column">
+      <p class="col-12">
+        <a href="/post/{{post.id}}">
+          {{title}}
+        </a>
+        Created by
+        {{user.name}}
+        on
+        {{formatDate dateCreated}}
+      </p>
+    </h2>
+  </div>
+  <div class="col-md-7">
+    <p>
+      {{description}}
+    </p>
+  </div>
+  <div></div>
 </div>
+{{#if comments.length}}
+  {{#each comments as |comment|}}
+    <div class="text-center justify-content-center mb-5 column">
+      <div>
+        <div>
+          <h2 class="titleBar column">
+            <p class="col-12">
+              Created by
+              {{comment.user.name}}
+              on
+              {{formatDate comment.dateCreated}}
+            </p>
+          </h2>
+        </div>
+        <p>
+          {{comment.description}}
+        </p>
+      </div>
+    </div>
+  {{/each}}
+{{/if}}
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>
+      Create a New Comment:
+    </h3>
+    <form class="new-comment-form">
+      <div class="form-group">
+        <label for="comm-desc">
+          Description:
+        </label>
+        <textarea class="form-input" id="comm-desc" name="comm-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+          Create
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"
+></script>
+<script src="../js/newComment.js"></script>

@@ -6,13 +6,14 @@ const signupForm = async (event) => {
   const password = $("#password-signup").val().trim();
 
   if (name && password) {
-    const response = await $.post(
-      "/api/users",
-      JSON.stringify({
+    const response = await fetch("/api/users", {
+      method: "POST",
+      body: JSON.stringify({
         name,
         password,
-      })
-    );
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
 
     if (response.ok) {
       document.location.replace("/dashboard");

@@ -19,3 +19,12 @@ body {
   color: var(--chocolate);
   background-color: var(--mint);
 }
+
+a {
+  color: inherit;
+}
+
+.titleBar {
+  color: var(--mint);
+  background-color: var(--chocolate);
+}

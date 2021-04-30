@@ -6,12 +6,18 @@ const loginForm = async (event) => {
   const password = $("#password-login").val().trim();
 
   if (name && password) {
-    const response = await $.post("/api/users/login", {
-      name,
-      password,
+    const response = await fetch("/api/users/login", {
+      method: "POST",
+      body: JSON.stringify({
+        name,
+        password,
+      }),
+      headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
+
+      alert(response.statusText);
       document.location.replace("/dashboard");
     } else {
       alert(response.statusText);
